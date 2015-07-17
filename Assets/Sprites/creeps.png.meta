@@ -1,0 +1,517 @@
+fileFormatVersion: 2
+guid: b8f22450327acdf42999b6e71bfa99ed
+timeCreated: 1437147539
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: creeps_0
+    21300002: creeps_1
+    21300004: creeps_2
+    21300006: creeps_3
+    21300008: creeps_4
+    21300010: creeps_5
+    21300012: creeps_6
+    21300014: creeps_7
+    21300016: creeps_8
+    21300018: creeps_9
+    21300020: creeps_10
+    21300022: creeps_11
+    21300024: creeps_12
+    21300026: creeps_13
+    21300028: creeps_14
+    21300030: creeps_15
+    21300032: creeps_16
+    21300034: creeps_17
+    21300036: creeps_18
+    21300038: creeps_19
+    21300040: creeps_20
+    21300042: creeps_21
+    21300044: creeps_22
+    21300046: creeps_23
+    21300048: creeps_24
+    21300050: creeps_25
+    21300052: creeps_26
+    21300054: creeps_27
+    21300056: creeps_28
+    21300058: creeps_29
+    21300060: creeps_30
+    21300062: creeps_31
+    21300064: creeps_32
+    21300066: creeps_33
+    21300068: creeps_34
+    21300070: creeps_35
+    21300072: creeps_36
+    21300074: creeps_37
+    21300076: creeps_38
+    21300078: creeps_39
+    21300080: creeps_40
+    21300082: creeps_41
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: creeps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 340
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_4
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_6
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_8
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_9
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_11
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_12
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_13
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_14
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_15
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_16
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_17
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_18
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_19
+      rect:
+        serializedVersion: 2
+        x: 2380
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_20
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_21
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 170
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_23
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_24
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_25
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_26
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_27
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_28
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_29
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_30
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_31
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_32
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_33
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_34
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_35
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_36
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_37
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_38
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_39
+      rect:
+        serializedVersion: 2
+        x: 2380
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_40
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creeps_41
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 0
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

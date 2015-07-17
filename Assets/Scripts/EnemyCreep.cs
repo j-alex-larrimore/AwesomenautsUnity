@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyCreep : MonoBehaviour {
+public class EnemyCreep : Creep {
 
 	// Use this for initialization
 	void Start () {

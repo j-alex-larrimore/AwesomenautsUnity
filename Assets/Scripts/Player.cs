@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : MovingObject {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
-	
+		int xAxis = 0;
+
+		xAxis = (int)Input.GetAxisRaw ("Horizontal");
+		MoveObject (xAxis);
+
+		if (Input.GetKeyDown ("space")) {
+			Jump();
+		}
 	}
+
+
 }

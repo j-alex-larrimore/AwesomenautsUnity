@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Creep : MonoBehaviour {
+public class Creep : MovingObject {
 
 	// Use this for initialization
 	void Start () {

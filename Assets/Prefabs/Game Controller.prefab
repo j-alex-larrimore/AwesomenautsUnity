@@ -39,6 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89522a64451226d4680e259d3e41e2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creeps:
+  - {fileID: 0}
+  heroes:
+  - {fileID: 0}
+  enemies: []
+  eBase: {fileID: 0}
+  pBase: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

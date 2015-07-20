@@ -6,11 +6,6 @@ public class MovingObject : MonoBehaviour {
 	private BoxCollider2D boxCollider;
 	private Rigidbody2D rigidBody;
 
-	//private int speed = 5;
-	//public float speed = 6f;
-	//public float jumpSpeed = 80f;
-	//public float gravity = 10f;
-
 	public Vector3 groundCheck;
 	private bool grounded = false;
 	//private bool jump = true;
@@ -29,12 +24,6 @@ public class MovingObject : MonoBehaviour {
 	}
 
 	protected bool MoveObject(float moveXDir){
-		/*Vector2 startPosition = rigidBody.position;
-		moveXDir *= (speed / 10);
-		//float moveYDir = -(gravity/40);
-		float moveYDir = 0;
-		Vector2 endPosition = startPosition + new Vector2 (moveXDir, moveYDir);
-		rigidBody.MovePosition (endPosition);*/
 
 		if (moveXDir * rigidBody.velocity.x < maxSpeed) {
 			rigidBody.AddForce (Vector2.right * moveXDir * moveForce);
@@ -65,6 +54,11 @@ public class MovingObject : MonoBehaviour {
 		}
 	}
 
+	protected void Attack(int damage){
+		Debug.Log ("Attack!");
+		anim.SetTrigger ("Attack");
+	}
+
 	protected void Flip(){
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
@@ -72,7 +66,6 @@ public class MovingObject : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	// Update is called once per frame
 	protected virtual void Update () {
 		groundCheck = transform.position;
 		groundCheck.y -= 3; 

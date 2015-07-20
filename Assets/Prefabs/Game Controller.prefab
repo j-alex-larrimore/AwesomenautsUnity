@@ -40,12 +40,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creeps:
-  - {fileID: 0}
+  - {fileID: 195668, guid: e7b68848ecd4db245ac823242f62aeda, type: 2}
   heroes:
-  - {fileID: 0}
-  enemies: []
-  eBase: {fileID: 0}
-  pBase: {fileID: 0}
+  - {fileID: 156122, guid: def7cd735c1caa94095c401022a683a7, type: 2}
+  bases:
+  - {fileID: 163050, guid: 1c19587d44b8df3488a29071ad8a2d13, type: 2}
+  - {fileID: 138056, guid: 1cf0d61d95cc10a42996a44ef67dcea5, type: 2}
+  creepSpawnTime: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

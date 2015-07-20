@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour {
 	private Transform pBase;
 	private Transform eBase;
 
+	private float creepTimer = 0f;
+	public float creepSpawnTime = 10.0f;
+
 	void Awake () {
 
 		if (Instance != null && Instance != this) {
@@ -29,9 +32,19 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-	
+		creepTimer += Time.deltaTime;
+		
+		if (creepTimer >= creepSpawnTime)
+		{
+			Debug.Log("Creep!");
+			Transform eCreep = new GameObject("Enemy Creep").transform;
+			GameObject eCreep1 = (GameObject)Instantiate (creeps [0], new Vector3 (16f, -6f, 0f), Quaternion.identity );
+			eCreep1.transform.SetParent (eCreep); 
+			// reset timer
+			creepTimer = 0;
+		}
 	}
-
+	
 	private void SetupLevel(){
 		pBase = new GameObject ("Player Base").transform;
 		eBase = new GameObject ("Enemy Base").transform;

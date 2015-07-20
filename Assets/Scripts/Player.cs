@@ -9,6 +9,10 @@ public class Player : MovingObject {
 		if (Input.GetKeyDown ("space")) {
 			Jump ();
 		}
+
+		if (Input.GetKeyDown ("q")) {
+			Attack (1);
+		}
 	}
 
 	void FixedUpdate(){

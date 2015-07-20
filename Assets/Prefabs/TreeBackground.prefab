@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3369060}
   - 23: {fileID: 2302532}
   - 61: {fileID: 6147058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 46.75, y: 1}
+  m_Size: {x: 1, y: 1}
 --- !u!61 &6187338
 BoxCollider2D:
   m_ObjectHideFlags: 1

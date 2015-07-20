@@ -2,7 +2,13 @@
 using System.Collections;
 
 public class Player : MovingObject {
-	
+
+	private Animator animator;
+
+	protected override void Start(){
+		base.Start ();
+		animator = GetComponent<Animator> ();
+	}
 
 	void Update () {
 		base.Update ();
@@ -11,14 +17,19 @@ public class Player : MovingObject {
 		}
 
 		if (Input.GetKeyDown ("q")) {
+			animator.SetTrigger ("playerAttack");
 			Attack (1);
 		}
 	}
 
 	void FixedUpdate(){
 		float h = Input.GetAxis ("Horizontal");
-
-		MoveObject (h);
+		if (h != 0) {
+			animator.SetTrigger ("playerWalk");
+			MoveObject (h);
+		} else {
+			animator.SetTrigger("playerIdle");
+		}
 	}
 
 		/*//public float speed = 6.0F;

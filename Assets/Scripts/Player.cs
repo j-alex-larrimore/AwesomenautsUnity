@@ -26,10 +26,14 @@ public class Player : MovingObject {
 		float h = Input.GetAxis ("Horizontal");
 		if (h != 0) {
 			animator.SetTrigger ("playerWalk");
-			MoveObject (h);
+			MoveObject<EnemyCreep> (h);
 		} else {
 			animator.SetTrigger("playerIdle");
 		}
+	}
+
+	protected override void HandleCollision<T>(T component){
+
 	}
 
 		/*//public float speed = 6.0F;

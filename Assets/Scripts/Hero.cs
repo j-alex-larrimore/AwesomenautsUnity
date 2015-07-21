@@ -12,4 +12,8 @@ public class Hero : MovingObject {
 	void Update () {
 	
 	}
+
+	protected override void HandleCollision<T>(T Component){
+		
+	}
 }

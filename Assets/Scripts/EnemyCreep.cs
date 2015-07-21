@@ -11,10 +11,15 @@ public class EnemyCreep : MovingObject {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//for jumping if ever implemented
 		base.Update ();
+		animator.SetTrigger ("creepWalk");
+		MoveObject (-3f);
+		Flip ();
+	}
 
-		MoveObject (-5f);
+	private void Attack(int damage){
+		animator.SetTrigger ("creepAttack");
 	}
 }

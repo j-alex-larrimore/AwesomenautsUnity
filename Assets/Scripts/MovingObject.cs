@@ -24,10 +24,10 @@ public class MovingObject : MonoBehaviour {
 	}
 
 	protected bool MoveObject(float moveXDir){
-
-		if (moveXDir * rigidBody.velocity.x < maxSpeed) {
+		if (Mathf.Abs (moveXDir * rigidBody.velocity.x) < maxSpeed) {
 			rigidBody.AddForce (Vector2.right * moveXDir * moveForce);
 		}
+
 		if (Mathf.Abs (rigidBody.velocity.x) > maxSpeed) {
 			rigidBody.velocity = new Vector2 (Mathf.Sign (rigidBody.velocity.x) * maxSpeed, rigidBody.velocity.y);
 		}
@@ -72,7 +72,5 @@ public class MovingObject : MonoBehaviour {
 		grounded = Physics2D.Linecast (transform.position, groundCheck, 1 << LayerMask.NameToLayer ("Ground"));
 
 	}
-
-
 	
 }

@@ -8,16 +8,14 @@ public class Player : MovingObject {
 	public int health = 5;
 	private float attackTimer = 0f;
 	public float attackDelayTime = 2.0f;
-	public float respawnDelayTimer = 5.0f;
-	private float respawnTimer = 0f;
-	private bool isDead = false;
+	public bool isDead = false;
 
 	protected override void Start(){
 		base.Start ();
 		animator = GetComponent<Animator> ();
 	}
 
-	void Update () {
+	protected override void Update () {
 		base.Update ();
 		if (!isDead) {
 			attackTimer += Time.deltaTime;
@@ -37,15 +35,16 @@ public class Player : MovingObject {
 
 	public void LoseHealth(int damageTaken){
 		health -= damageTaken;
+		Debug.Log ("OUCH! " + health);
 		if (health <= 0) {
-			Debug.Log ("OUCH! " + health);
 			Respawn();
 		}
 	}
 
 	public void Respawn(){
 		isDead = true;
-		//Make the character wait 2 seconds and appear in top left of screen
+		DestroyImmediate (boxCollider);
+		DestroyImmediate (rigidBody);
 	}
 
 	void FixedUpdate(){

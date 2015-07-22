@@ -6,8 +6,8 @@ public abstract class MovingObject : MonoBehaviour {
 	protected bool isDragon;
 	protected bool canMove;
 
-	private BoxCollider2D boxCollider;
-	private Rigidbody2D rigidBody;
+	protected BoxCollider2D boxCollider;
+	protected Rigidbody2D rigidBody;
 	private LayerMask collisionLayer;
 
 	public Vector3 groundCheck;

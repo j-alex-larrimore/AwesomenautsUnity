@@ -5,14 +5,20 @@ public class GameController : MonoBehaviour {
 
 	public static GameController Instance;
 
-	public PlayerBase pBase;
-	public EnemyBase eBase;
+	public Transform pBase;
+	public Transform eBase;
 	public Transform eCreep;
+	public Transform player;
 
-	public Player player;
+	private Player playerRef;
+	private EnemyBase eBaseRef;
+	private PlayerBase pBaseRef;
 
 	private float creepTimer = 0f;
 	public float creepSpawnTime = 10.0f;
+	
+	public float respawnDelayTimer = 5.0f;
+	private float respawnTimer = 0f;
 
 	void Awake () {
 
@@ -25,6 +31,10 @@ public class GameController : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	
 		SetupLevel ();
+		
+		playerRef = GameObject.FindGameObjectWithTag ("Player").transform.GetComponent<Player> ();
+		pBaseRef = GameObject.FindGameObjectWithTag ("PlayerBase").transform.GetComponent<PlayerBase> ();
+		eBaseRef = GameObject.FindGameObjectWithTag ("EnemyBase").transform.GetComponent<EnemyBase> ();
 	}
 
 	void Update () {
@@ -32,19 +42,31 @@ public class GameController : MonoBehaviour {
 		
 		if (creepTimer >= creepSpawnTime)
 		{
-			Debug.Log("Creep!");
 			Instantiate (eCreep, new Vector3 (14f, -8f, 0f), Quaternion.identity );
 			// reset timer
 			creepTimer = 0;
 		}
 
+		if (playerRef.isDead) {
+			Debug.Log ("Player is dead");
+			respawnTimer += Time.deltaTime;
+			if(respawnTimer >= respawnDelayTimer){
+				respawnTimer = 0;
+				playerRef.gameObject.SetActive(false);
+				Instantiate (player, new Vector3 (-15f, -6f, 0f), Quaternion.identity );
+				playerRef = GameObject.FindGameObjectWithTag ("Player").transform.GetComponent<Player>();
+				Debug.Log ("New Player " + playerRef.health);
+			}
+		}
 	}
 	
 	private void SetupLevel(){
-		Instantiate (player.transform, new Vector3 (-15f, -6f, 0f), Quaternion.identity );
-		Instantiate (pBase.transform, new Vector3 (-16.5f, -6f, 0f), Quaternion.identity );
-		Instantiate (eBase.transform, new Vector3 (19.8f, -6f, 0f), Quaternion.identity );
+		Instantiate (player, new Vector3 (-15f, -6f, 0f), Quaternion.identity );
+		Instantiate (pBase, new Vector3 (-16.5f, -6f, 0f), Quaternion.identity );
+		Instantiate (eBase, new Vector3 (19.8f, -6f, 0f), Quaternion.identity );
 
+
+	
 	}
 
 	private void AddCreep(){

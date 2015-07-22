@@ -16,7 +16,7 @@ public class EnemyCreep : MovingObject {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
 		attackTimer += Time.deltaTime;
 		//for jumping if ever implemented
 		base.Update ();

@@ -30,10 +30,18 @@ public abstract class MovingObject : MonoBehaviour {
 	}
 
 	protected void MoveObject(float moveXDir){
-		if (moveXDir > 0 && !facingRight) {
-			Flip ();
-		} else if (moveXDir < 0 && facingRight) {
-			Flip ();
+		if (!isDragon) {
+			if (moveXDir > 0 && !facingRight) {
+				Flip ();
+			} else if (moveXDir < 0 && facingRight) {
+				Flip ();
+			}
+		} else {
+			if (moveXDir > 0 && !facingRight) {
+				facingRight = !facingRight;
+			} else if (moveXDir < 0 && facingRight) {
+				facingRight = !facingRight;
+			}
 		}
 
 		if (canMove) {
@@ -53,9 +61,9 @@ public abstract class MovingObject : MonoBehaviour {
 		int hitDirX;
 		
 		if (facingRight) {
-			hitDirX =  3;
+			hitDirX =  2;
 		} else {
-			hitDirX = - 3;
+			hitDirX = - 2;
 		}
 		
 		canMove = CanObjectMove(hitDirX, 0, out hit);

@@ -21,12 +21,7 @@ public class EnemyCreep : MovingObject {
 		//for jumping if ever implemented
 		base.Update ();
 		animator.SetTrigger ("creepWalk");
-		if (attackTimer >= attackDelayTime) {
-			attackTimer = 0;
-			Attack ();
-		} else {
-			this.attacking = false;
-		}
+
 	}
 
 	public void LoseHealth(int damageTaken){
@@ -48,9 +43,15 @@ public class EnemyCreep : MovingObject {
 	}
 
 	protected override void HandleCollision<T>(T component){
+		if (attackTimer >= attackDelayTime) {
+			attackTimer = 0;
+			Attack ();
+		} else {
+			this.attacking = false;
+		}
+
 		Player player = component as Player;
 		if (this.attacking) {
-			Debug.Log ("Actually attack");
 			player.LoseHealth (1);
 		}
 	}

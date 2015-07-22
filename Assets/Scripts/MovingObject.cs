@@ -61,9 +61,9 @@ public abstract class MovingObject : MonoBehaviour {
 		int hitDirX;
 		
 		if (facingRight) {
-			hitDirX =  2;
+			hitDirX =  3;
 		} else {
-			hitDirX = - 2;
+			hitDirX = - 3;
 		}
 		
 		canMove = CanObjectMove(hitDirX, 0, out hit);

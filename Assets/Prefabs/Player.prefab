@@ -170,6 +170,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheck: {x: 0, y: 0, z: 0}
   hitCheck: {x: 0, y: 0, z: 0}
+  health: 5
+  attackDelayTime: 2
+  respawnDelayTimer: 5
 --- !u!124 &12486252
 Behaviour:
   m_ObjectHideFlags: 1

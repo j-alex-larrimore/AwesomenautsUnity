@@ -8,6 +8,9 @@ public class Player : MovingObject {
 	public int health = 5;
 	private float attackTimer = 0f;
 	public float attackDelayTime = 2.0f;
+	public float respawnDelayTimer = 5.0f;
+	private float respawnTimer = 0f;
+	private bool isDead = false;
 
 	protected override void Start(){
 		base.Start ();
@@ -16,43 +19,47 @@ public class Player : MovingObject {
 
 	void Update () {
 		base.Update ();
-		attackTimer += Time.deltaTime;
-		if (Input.GetKeyDown ("space")) {
-			Jump ();
-		}
+		if (!isDead) {
+			attackTimer += Time.deltaTime;
+			if (Input.GetKeyDown ("space")) {
+				Jump ();
+			}
 
-		if (Input.GetKeyDown ("q") && attackTimer >= attackDelayTime) {
-			attackTimer = 0;
-			animator.SetTrigger ("playerAttack");
-			this.attacking = true;
-		} else {
-			this.attacking = false;
+			if (Input.GetKeyDown ("q") && attackTimer >= attackDelayTime) {
+				attackTimer = 0;
+				animator.SetTrigger ("playerAttack");
+				this.attacking = true;
+			} else {
+				this.attacking = false;
+			}
 		}
 	}
 
 	public void LoseHealth(int damageTaken){
 		health -= damageTaken;
-		
-		Debug.Log ("OUCH! " + health);
 		if (health <= 0) {
+			Debug.Log ("OUCH! " + health);
 			Respawn();
 		}
 	}
 
 	public void Respawn(){
+		isDead = true;
 		//Make the character wait 2 seconds and appear in top left of screen
 	}
 
 	void FixedUpdate(){
-		float h = Input.GetAxis ("Horizontal");
+		if (!isDead) {
+			float h = Input.GetAxis ("Horizontal");
 
-		CheckCollisions<EnemyCreep>();
+			CheckCollisions<EnemyCreep> ();
 
-		if (h != 0) {
-			animator.SetTrigger ("playerWalk");
-			MoveObject(h);
-		} else {
-			animator.SetTrigger("playerIdle");
+			if (h != 0) {
+				animator.SetTrigger ("playerWalk");
+				MoveObject (h);
+			} else {
+				animator.SetTrigger ("playerIdle");
+			}
 		}
 	}
 

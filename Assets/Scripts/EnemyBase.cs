@@ -8,7 +8,8 @@ public class EnemyBase : Base {
 
 	// Use this for initialization
 	void Start () {
-		SetHealth (10);
+		SetHealth (2);
+		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame

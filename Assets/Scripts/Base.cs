@@ -14,8 +14,9 @@ public class Base : MonoBehaviour {
 		health = startHealth;
 	}
 
-	protected void LoseHealth(int damageTaken){
+	public void LoseHealth(int damageTaken){
 		health -= damageTaken;
+		Debug.Log ("Boom " + health);
 	}
 
 	protected bool CheckIfBroken(){

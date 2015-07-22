@@ -13,6 +13,7 @@ public class Player : MovingObject {
 	protected override void Start(){
 		base.Start ();
 		animator = GetComponent<Animator> ();
+		jumpForce = 2000f;
 	}
 
 	protected override void Update () {
@@ -51,7 +52,9 @@ public class Player : MovingObject {
 		if (!isDead) {
 			float h = Input.GetAxis ("Horizontal");
 
-			CheckCollisions<EnemyCreep> ();
+			CheckCollisions();
+			CheckCollisionType<EnemyCreep>();
+			CheckCollisionType<EnemyBase>();
 
 			if (h != 0) {
 				animator.SetTrigger ("playerWalk");
@@ -67,6 +70,13 @@ public class Player : MovingObject {
 		if (this.attacking) {
 			Debug.Log ("Actually attack");
 			eCreep.LoseHealth (1);
+		}
+	}
+
+	protected override void HandleBaseCollision<T>(T component){
+		EnemyBase ebase = component as EnemyBase;
+		if (this.attacking) {
+			ebase.LoseHealth (1);
 		}
 	}
 

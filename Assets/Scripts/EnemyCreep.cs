@@ -33,8 +33,10 @@ public class EnemyCreep : MovingObject {
 	}
 
 	void FixedUpdate(){
-		CheckCollisions<Player> ();
-		MoveObject(-0.8f);
+		CheckCollisions();
+		CheckCollisionType<Player>();
+		CheckCollisionType<PlayerBase>();
+		MoveObject(-0.6f);
 	}
 
 	private void Attack(){
@@ -53,6 +55,21 @@ public class EnemyCreep : MovingObject {
 		Player player = component as Player;
 		if (this.attacking) {
 			player.LoseHealth (1);
+		}
+	}
+
+	protected override void HandleBaseCollision<T>(T component){
+		Debug.Log ("Base Collide");
+		if (attackTimer >= attackDelayTime) {
+			attackTimer = 0;
+			Attack ();
+		} else {
+			this.attacking = false;
+		}
+		
+		PlayerBase pbase = component as PlayerBase;
+		if (this.attacking) {
+			pbase.LoseHealth (1);
 		}
 	}
 }

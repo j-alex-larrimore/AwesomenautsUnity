@@ -16,4 +16,8 @@ public class Creep : MovingObject {
 	protected override void HandleCollision<T>(T Component){
 
 	}
+
+	protected override void HandleBaseCollision<T>(T component){
+		
+	}
 }

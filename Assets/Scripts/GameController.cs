@@ -42,13 +42,12 @@ public class GameController : MonoBehaviour {
 		
 		if (creepTimer >= creepSpawnTime)
 		{
-			Instantiate (eCreep, new Vector3 (14f, -8f, 0f), Quaternion.identity );
+			Instantiate (eCreep, new Vector3 (14f, -12f, 0f), Quaternion.identity );
 			// reset timer
 			creepTimer = 0;
 		}
 
 		if (playerRef.isDead) {
-			Debug.Log ("Player is dead");
 			respawnTimer += Time.deltaTime;
 			if(respawnTimer >= respawnDelayTimer){
 				respawnTimer = 0;

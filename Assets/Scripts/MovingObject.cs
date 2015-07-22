@@ -6,6 +6,8 @@ public abstract class MovingObject : MonoBehaviour {
 	protected bool isDragon;
 	protected bool canMove;
 
+	private RaycastHit2D hitObject;
+
 	protected BoxCollider2D boxCollider;
 	protected Rigidbody2D rigidBody;
 	private LayerMask collisionLayer;
@@ -17,9 +19,9 @@ public abstract class MovingObject : MonoBehaviour {
 	private bool facingRight = true;
 	private Animator anim;
 
-	private float moveForce = 365f;
-	private float maxSpeed = 5f;
-	private float jumpForce = 500f;
+	protected float moveForce = 365f;
+	protected float maxSpeed = 5f;
+	protected float jumpForce = 500f;
 
 	// Use this for initialization
 	protected virtual void Start () {
@@ -56,8 +58,21 @@ public abstract class MovingObject : MonoBehaviour {
 		}
 	}
 
-	protected void CheckCollisions<T>(){
-		RaycastHit2D hit;
+	protected void CheckCollisionType<T>(){
+		if (!canMove) {
+			T hitComponent = hitObject.transform.GetComponent<T> ();
+			if (hitComponent != null) {
+				Debug.Log (hitComponent.GetType());
+				if(hitComponent.GetType().ToString() == "PlayerBase" || hitComponent.GetType().ToString() == "EnemyBase"){
+					HandleBaseCollision(hitComponent);
+				}else{
+					HandleCollision (hitComponent);
+				}
+			}
+		}
+	}
+
+	protected void CheckCollisions(){
 		int hitDirX;
 		
 		if (facingRight) {
@@ -66,18 +81,11 @@ public abstract class MovingObject : MonoBehaviour {
 			hitDirX = - 3;
 		}
 		
-		canMove = CanObjectMove(hitDirX, 0, out hit);
-		if (!canMove) {
-			T hitComponent = hit.transform.GetComponent<T> ();
-		
-			if (hitComponent != null) {
-				HandleCollision (hitComponent);
-			}
-		}
+		canMove = CanObjectMove(hitDirX, 0);
 	}
 
 	protected void Jump(){
-		if (grounded) {
+		if (grounded || canMove == false) {
 			Debug.Log ("Jump! " + jumpForce);
 			//For once you add a jump animation:
 			//anim.setTrigger("Jump");
@@ -95,16 +103,16 @@ public abstract class MovingObject : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	protected bool CanObjectMove(int xDirection, int yDirection, out RaycastHit2D hit){
+	protected bool CanObjectMove(int xDirection, int yDirection){
 		Vector2 startPosition = rigidBody.position;
 		Vector2 endPosition = startPosition + new Vector2 (xDirection, yDirection);
 		
 		boxCollider.enabled = false;
-			hit = Physics2D.Linecast (startPosition, endPosition, collisionLayer);
+			hitObject = Physics2D.Linecast (startPosition, endPosition, collisionLayer);
 		
 		boxCollider.enabled = true;
 		
-		if (hit.transform == null) {
+		if (hitObject.transform == null) {
 			return true;
 		}
 		return false;
@@ -119,5 +127,7 @@ public abstract class MovingObject : MonoBehaviour {
 	}
 
 	protected abstract void HandleCollision<T>(T component);
+
+	protected abstract void HandleBaseCollision<T>(T component);
 	
 }

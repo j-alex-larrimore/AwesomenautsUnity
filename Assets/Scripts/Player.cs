@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Player : MovingObject {
 
+	private bool attacking = false;
 	private Animator animator;
+	public int health = 5;
+	private float attackTimer = 0f;
+	public float attackDelayTime = 2.0f;
 
 	protected override void Start(){
 		base.Start ();
@@ -12,48 +16,53 @@ public class Player : MovingObject {
 
 	void Update () {
 		base.Update ();
+		attackTimer += Time.deltaTime;
 		if (Input.GetKeyDown ("space")) {
 			Jump ();
 		}
 
-		if (Input.GetKeyDown ("q")) {
+		if (Input.GetKeyDown ("q") && attackTimer >= attackDelayTime) {
+			attackTimer = 0;
 			animator.SetTrigger ("playerAttack");
-			Attack (1);
+			this.attacking = true;
+		} else {
+			this.attacking = false;
 		}
+	}
+
+	public void LoseHealth(int damageTaken){
+		health -= damageTaken;
+		
+		Debug.Log ("OUCH! " + health);
+		if (health <= 0) {
+			Respawn();
+		}
+	}
+
+	public void Respawn(){
+		//Make the character wait 2 seconds and appear in top left of screen
 	}
 
 	void FixedUpdate(){
 		float h = Input.GetAxis ("Horizontal");
+
+		CheckCollisions<EnemyCreep>();
+
 		if (h != 0) {
 			animator.SetTrigger ("playerWalk");
-			MoveObject<EnemyCreep> (h);
+			MoveObject(h);
 		} else {
 			animator.SetTrigger("playerIdle");
 		}
 	}
 
 	protected override void HandleCollision<T>(T component){
-
+		EnemyCreep eCreep = component as EnemyCreep;
+		if (this.attacking) {
+			Debug.Log ("Actually attack");
+			eCreep.LoseHealth (1);
+		}
 	}
-
-		/*//public float speed = 6.0F;
-		//public float jumpSpeed = 8.0F;
-		//public float gravity = 20.0F;
-		//private Vector3 moveDirection = Vector3.zero;
-		
-		void Update() {
-			//CharacterController controller = GetComponent<CharacterController>();
-			//if (controller.isGrounded) {
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
-			moveDirection *= speed;
-			//if (Input.GetButton("Jump"))
-			//	moveDirection.y = jumpSpeed;
-			
-			//}
-			//moveDirection.y -= gravity * Time.deltaTime;
-			controller.Move(moveDirection * Time.deltaTime);
-		}*/
 
 
 }

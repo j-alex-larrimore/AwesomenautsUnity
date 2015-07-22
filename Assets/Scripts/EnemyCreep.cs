@@ -4,6 +4,10 @@ using System.Collections;
 public class EnemyCreep : MovingObject {
 
 	private Animator animator;
+	public int health = 2;
+	private bool attacking = false;
+	private float attackTimer = 0f;
+	public float attackDelayTime = 2.0f;
 
 	protected override void Start(){
 		base.Start ();
@@ -13,20 +17,41 @@ public class EnemyCreep : MovingObject {
 	
 	// Update is called once per frame
 	void Update () {
+		attackTimer += Time.deltaTime;
 		//for jumping if ever implemented
 		base.Update ();
 		animator.SetTrigger ("creepWalk");
+		if (attackTimer >= attackDelayTime) {
+			attackTimer = 0;
+			Attack ();
+		} else {
+			this.attacking = false;
+		}
+	}
+
+	public void LoseHealth(int damageTaken){
+		health -= damageTaken;
+		Debug.Log ("current: " + health);
+		if (health <= 0) {
+			gameObject.SetActive(false);
+		}
 	}
 
 	void FixedUpdate(){
-		MoveObject<Player> (-0.8f);
+		CheckCollisions<Player> ();
+		MoveObject(-0.8f);
 	}
 
-	private void Attack(int damage){
+	private void Attack(){
 		animator.SetTrigger ("creepAttack");
+		this.attacking = true;
 	}
 
-	protected override void HandleCollision<T>(T Component){
-
+	protected override void HandleCollision<T>(T component){
+		Player player = component as Player;
+		if (this.attacking) {
+			Debug.Log ("Actually attack");
+			player.LoseHealth (1);
+		}
 	}
 }

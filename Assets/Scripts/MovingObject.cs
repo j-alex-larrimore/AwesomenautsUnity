@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class MovingObject : MonoBehaviour {
 
 	protected bool isDragon;
+	protected bool canMove;
 
 	private BoxCollider2D boxCollider;
 	private Rigidbody2D rigidBody;
@@ -28,43 +29,46 @@ public abstract class MovingObject : MonoBehaviour {
 		collisionLayer = LayerMask.GetMask ("Collision Layer");
 	}
 
-	protected void MoveObject<T>(float moveXDir){
-		bool canMove;
-		RaycastHit2D hit;
-		int hitDirX;
-
-		if (facingRight) {
-			hitDirX = (int)moveXDir + 5;
-		} else {
-			hitDirX = (int)moveXDir - 5;
-		}
-
-
+	protected void MoveObject(float moveXDir){
 		if (moveXDir > 0 && !facingRight) {
 			Flip ();
 		} else if (moveXDir < 0 && facingRight) {
 			Flip ();
 		}
 
-		canMove = CanObjectMove(hitDirX, 0, out hit);
-
 		if (canMove) {
 			
 			if (moveXDir * rigidBody.velocity.x < maxSpeed) {
 				rigidBody.AddForce (Vector2.right * moveXDir * moveForce);
 			}
-			if (Mathf.Abs (rigidBody.velocity.x) > maxSpeed) {
+			if (Mathf.Abs (rigidBody.velocity.x) >= maxSpeed) {
 				rigidBody.velocity = new Vector2 (Mathf.Sign (rigidBody.velocity.x) * maxSpeed, rigidBody.velocity.y);
 			}
 			return;
 		}
-		
-		T hitComponent = hit.transform.GetComponent<T>();
+	}
 
+	protected void CheckCollisions<T>(){
+		RaycastHit2D hit;
+		int hitDirX;
+		
+		if (facingRight) {
+			hitDirX =  3;
+		} else {
+			hitDirX = - 3;
+		}
+		
+		canMove = CanObjectMove(hitDirX, 0, out hit);
+		if (!canMove) {
+			T hitComponent = hit.transform.GetComponent<T> ();
+		
+			if (hitComponent != null) {
+				HandleCollision (hitComponent);
+			}
+		}
 	}
 
 	protected void Jump(){
-
 		if (grounded) {
 			Debug.Log ("Jump! " + jumpForce);
 			//For once you add a jump animation:
@@ -74,11 +78,6 @@ public abstract class MovingObject : MonoBehaviour {
 		} else {
 			Debug.Log ("Cant Jump!");
 		}
-	}
-
-	protected void Attack(int damage){
-		Debug.Log ("Attack!");
-		anim.SetTrigger ("Attack");
 	}
 
 	protected void Flip(){
